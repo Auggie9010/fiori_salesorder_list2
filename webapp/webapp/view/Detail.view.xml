@@ -1,5 +1,5 @@
-<mvc:View controllerName="sap.cp.webapp.controller.Detail" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-	<Page id="detail" title="Sales Order Detail" showNavButton="true" navButtonPress="handleNavButtonPress" >
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.cp.webapp.controller.Detail" displayBlock="true">
+	<Page id="detail" title="Sales Order Detail" showNavButton="true" navButtonPress="handleNavButtonPress">
 		<VBox>
 			<Text text="{SalesOrderID}" />
 			<Text text="{CostomerID}" />

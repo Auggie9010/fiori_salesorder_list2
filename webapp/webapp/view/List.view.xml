@@ -7,7 +7,7 @@
 
             <items>
 
-                <ColumnListItem type="Active" id="item0">
+                <ColumnListItem type="Active" id="item0" press="handleListItemPress">
 
                     <cells>
 
