@@ -11,8 +11,6 @@ sap.ui.define([
                 oRouter.navTo("detail", {
                     SalesOrderID: selectedSalesOrderID
                 });
-                alert("selectedSalesOrderID" + selectedSalesOrderID);
-                alert("oEvent.getSource().getBindingContext()" + oEvent.getSource().getBindingContext());
             }
         });
     });

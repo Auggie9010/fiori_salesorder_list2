@@ -8,14 +8,13 @@ sap.ui.define([
             onInit: function () {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.getRoute("detail").attachMatched(this._onRouteMatched, this);
-                alert("oRouter" + oRouter);
             },
             _onRouteMatched: function (oEvent) {
                 var oArgs, oView;
                 oArgs = oEvent.getParameter("arguments");
                 oView = this.getView();
                 oView.bindElement({
-                    path: "/SalesOrderSet(" + oArgs.SalesOrderID + ")",
+                    path: "/SalesOrderSet('" + oArgs.SalesOrderID + "')",
                     events: {
                         dataRequested: function () {
                             oView.setBusy(true);
@@ -25,9 +24,6 @@ sap.ui.define([
                         }
                     }
                 });
-                alert("oArgs" + oArgs);
-                alert("oView" + oView);
-                alert("oArgs.SalesOrderID" + oArgs.SalesOrderID);
             },
             handleNavButtonPress: function (evt) {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
