@@ -6,9 +6,9 @@
 			<Text text="{DeliveryStatus}"/>
 			<Text text="{GrossAmount}"/>
 		</VBox>
-		<Table noDataText="Drop column list items here and columns in the area above" id="table0" items="{path:'/SalesOrderLineItemSet',parameters:{expand:'ToProduct'}}">
+		<Table noDataText="Drop column list items here and columns in the area above" id="detailList" items="{path:'/SalesOrderLineItemSet',parameters:{expand:'ToProduct'}}">
 		    <items>
-		        <ColumnListItem type="Active" id="item0">
+		        <ColumnListItem type="Active" id="listItem">
 		            <cells>
 		                <Text text="{ItemPosition}" id="text6"/>
 		                <Text text="{ProductID}" id="text7"/>

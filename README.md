@@ -1,11 +1,15 @@
-# fiori_salesorder_list
-Fiori受注レポート
+# Title
+fiori_salesorder_list
 
-# 作成日
+# Created By
+Auggie9010
+
+# Created Date
 2020/10/27
 
-# 進捗
-第二画面の値取得に不具合あり
+# Last Updated Date
+2020/12/07
 
-# 参考
+# Reference
+https://developers.sap.com/group.appstudio-fiori.html
 https://developers.sap.com/group.cp-frontend-ui5-1.html
