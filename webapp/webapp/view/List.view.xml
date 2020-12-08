@@ -1,73 +1,44 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.cp.webapp.controller.List" displayBlock="true">
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+        xmlns="sap.m"
+        controllerName="sap.cp.webapp.controller.List" 
+        displayBlock="true">
 	<Page id="listPage" title="Sales Order List">
-
     <content>
-
-        <Table noDataText="Drop column list items here and columns in the area above" id="table0" items="{path:'/SalesOrderSet',sorter:[{path:'SalesOrderID',descending:false}]}">
-
+        <Table noDataText="Drop column list items here and columns in the area above" 
+            id="table0"
+            items="{path:'/SalesOrderSet',sorter:[{path:'SalesOrderID',descending:false}]}"
+            >
             <items>
-
                 <ColumnListItem type="Active" id="item0" press="handleListItemPress">
-
                     <cells>
-
                         <Text text="{SalesOrderID}" id="text2"/>
-
                         <Text text="{CustomerID}:{CustomerName}" id="text3"/>
-
                         <Text text="{DeliveryStatus}" id="text4"/>
-                        
                         <Text text="{GrossAmount}" id="text5"/></cells>
-
                 </ColumnListItem>
-
             </items>
-
             <columns>
-
                 <Column id="column0">
-
                     <header>
-
                         <Label text="Sales Oder ID" id="label0"/>
-
                     </header>
-
                 </Column>
-
                 <Column id="column1">
-
                     <header>
-
                         <Label text="Customer" id="label1"/>
-
                     </header>
-
                 </Column>
-
                 <Column id="column2">
-
                     <header>
-
                         <Label text="Delivery Status" id="label2"/>
-
                     </header>
-
                 </Column>
-
                 <Column id="column3">
-
                     <header>
-
                         <Label text="Total Price" id="label3"/>
-
                     </header>
-
                 </Column>
-
             </columns></Table>
-
     </content>
-
     </Page>
 </mvc:View>

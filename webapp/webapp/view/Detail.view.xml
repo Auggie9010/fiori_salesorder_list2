@@ -1,36 +1,84 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.cp.webapp.controller.Detail" displayBlock="true">
-	<Page id="detail" title="Sales Order Detail" showNavButton="true" navButtonPress="handleNavButtonPress">
-		<VBox>
-			<Text text="{SalesOrderID}"/>
-			<Text text="{CustomerID}"/>
-			<Text text="{DeliveryStatus}"/>
-			<Text text="{GrossAmount}"/>
-		</VBox>
-		<Table noDataText="Drop column list items here and columns in the area above" id="detailList" items="{path:'/SalesOrderLineItemSet',parameters:{expand:'ToProduct'}}">
-		    <items>
-		        <ColumnListItem type="Active" id="listItem">
-		            <cells>
-		                <Text text="{ItemPosition}" id="text6"/>
-		                <Text text="{ProductID}" id="text7"/>
-		                <Text text="{ToProduct/Description}" id="text8"/></cells>
-		        </ColumnListItem>
-		    </items>
-		    <columns>
-		        <Column id="column0">
-		            <header>
-		                <Label text="ItemPosition" id="label0"/>
-		            </header>
-		        </Column>
-		        <Column id="column1">
-		            <header>
-		                <Label text="ProductID" id="label1"/>
-		            </header>
-		        </Column>
-		        <Column id="column2">
-		            <header>
-		                <Label text="Product Description" id="label2"/>
-		            </header>
-		        </Column></columns></Table>
-	<content/>
+<mvc:View 
+        xmlns:mvc="sap.ui.core.mvc" 
+        xmlns="sap.m" 
+        xmlns:l="sap.ui.layout" 
+        controllerName="sap.cp.webapp.controller.Detail" 
+        displayBlock="true">
+	<Page 
+        id="detail" 
+        title="Sales Order Detail" 
+        showNavButton="true" 
+        navButtonPress="handleNavButtonPress">
+    <content>
+        <Panel 
+            headerText="Header">
+                <VBox>
+                <l:HorizontalLayout 
+                    class="sapUiContentPadding" >
+                    <Label 
+                        text="SalesOrderID" 
+                        labelFor="SalesOrderID"/>
+                    <Text 
+                        id="SalesOrderID"
+                        text="{SalesOrderID}"/>
+                </l:HorizontalLayout>
+                <l:HorizontalLayout 
+                    class="sapUiContentPadding" >
+                    <Label 
+                        text="CustomerID" 
+                        labelFor="CustomerID"/>
+                    <Text 
+                        id="CustomerID"
+                        text="{CustomerID}"/>
+                </l:HorizontalLayout>
+                <l:HorizontalLayout 
+                    class="sapUiContentPadding" >
+                    <Label 
+                        text="DeliveryStatus" 
+                        labelFor="DeliveryStatus"/>
+                    <Text 
+                        id="DeliveryStatus"
+                        text="{DeliveryStatus}"/>
+                </l:HorizontalLayout>
+                <l:HorizontalLayout
+                    class="sapUiContentPadding" >
+                    <Label 
+                        text="GrossAmount" 
+                        labelFor="GrossAmount"/>
+                    <Text 
+                        id="GrossAmount"
+                        text="{GrossAmount}"/>
+                </l:HorizontalLayout>
+            </VBox>
+        </Panel>
+        <Panel headerText="Detail">
+            <Table noDataText="Drop column list items here and columns in the area above" id="detailList" items="{path:'/SalesOrderLineItemSet',parameters:{expand:'ToProduct'}}">
+                <items>
+                    <ColumnListItem type="Active" id="listItem">
+                        <cells>
+                            <Text text="{ItemPosition}" id="text6"/>
+                            <Text text="{ProductID}" id="text7"/>
+                            <Text text="{ToProduct/Description}" id="text8"/></cells>
+                    </ColumnListItem>
+                </items>
+                <columns>
+                    <Column id="column0">
+                        <header>
+                            <Label text="ItemPosition" id="label0"/>
+                        </header>
+                    </Column>
+                    <Column id="column1">
+                        <header>
+                            <Label text="ProductID" id="label1"/>
+                        </header>
+                    </Column>
+                    <Column id="column2">
+                        <header>
+                            <Label text="Product Description" id="label2"/>
+                        </header>
+                    </Column></columns>
+            </Table>
+        </Panel>
+	</content>
 	</Page>
 </mvc:View>

@@ -16,6 +16,14 @@
       "options": {
         "cwd": "${workspaceFolder}/salesorder-approuter"
       }
+    },
+    {
+      "label": "Build fiori_salesorder_list2",
+      "type": "shell",
+      "command": "if [ ! -f ${workspaceFolder}/salesorder-approuter/node_modules/@sap/html5-repo-mock/index.js ] || [ ! -f ${workspaceFolder}/salesorder-approuter/node_modules/@sap/approuter/approuter.js ]; then npm i @sap/approuter && npm i @sap/html5-repo-mock; fi",
+      "options": {
+        "cwd": "${workspaceFolder}/salesorder-approuter"
+      }
     }
   ]
 }
