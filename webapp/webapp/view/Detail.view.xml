@@ -2,6 +2,7 @@
         xmlns:mvc="sap.ui.core.mvc" 
         xmlns="sap.m" 
         xmlns:l="sap.ui.layout" 
+        xmlns:f="sap.ui.layout.form"
         controllerName="sap.cp.webapp.controller.Detail" 
         displayBlock="true">
 	<Page 
@@ -10,73 +11,72 @@
         showNavButton="true" 
         navButtonPress="handleNavButtonPress">
     <content>
+        <ObjectHeader
+				title="{SalesOrderID}"
+				backgroundDesign="Solid"
+				number="{GrossAmount}"
+				numberUnit="{CurrencyCode}" >
+				<attributes>
+					<ObjectAttribute title="CustomerID" text="{CustomerID}" />
+				</attributes>
+		</ObjectHeader>
         <Panel 
             headerText="Header">
-                <VBox>
-                <l:HorizontalLayout 
-                    class="sapUiContentPadding" >
+            <f:SimpleForm 
+                layout= "ResponsiveGridLayout">
+                <f:content>
                     <Label 
-                        text="SalesOrderID" 
-                        labelFor="SalesOrderID"/>
+                        text="SalesOrderID" />
                     <Text 
-                        id="SalesOrderID"
                         text="{SalesOrderID}"/>
-                </l:HorizontalLayout>
-                <l:HorizontalLayout 
-                    class="sapUiContentPadding" >
                     <Label 
-                        text="CustomerID" 
-                        labelFor="CustomerID"/>
+                        text="CustomerID" />
                     <Text 
-                        id="CustomerID"
                         text="{CustomerID}"/>
-                </l:HorizontalLayout>
-                <l:HorizontalLayout 
-                    class="sapUiContentPadding" >
                     <Label 
-                        text="DeliveryStatus" 
-                        labelFor="DeliveryStatus"/>
+                        text="DeliveryStatus" />
                     <Text 
-                        id="DeliveryStatus"
                         text="{DeliveryStatus}"/>
-                </l:HorizontalLayout>
-                <l:HorizontalLayout
-                    class="sapUiContentPadding" >
                     <Label 
-                        text="GrossAmount" 
-                        labelFor="GrossAmount"/>
+                        text="GrossAmount" />
                     <Text 
-                        id="GrossAmount"
                         text="{GrossAmount}"/>
-                </l:HorizontalLayout>
-            </VBox>
+                </f:content>
+            </f:SimpleForm>
         </Panel>
         <Panel headerText="Detail">
-            <Table noDataText="Drop column list items here and columns in the area above" id="detailList" items="{path:'/SalesOrderLineItemSet',parameters:{expand:'ToProduct'}}">
+            <Table
+                noDataText="Drop column list items here and columns in the area above"
+                id="detailList"
+                items="{path:'/SalesOrderLineItemSet',parameters:{expand:'ToProduct'}}">
+                <columns>
+                    <Column><header><Label text="ItemPosition"/></header></Column>
+                    <Column><header><Label text="ProductID"/></header></Column>
+                    <Column><header><Label text="Product Description"/></header></Column>
+                    <Column><header><Label text="Note"/></header></Column>
+                    <Column><header><Label text="NetAmount"/></header></Column>
+                    <Column><header><Label text="TaxAmount"/></header></Column>
+                    <Column><header><Label text="GrossAmount"/></header></Column>
+                </columns>
                 <items>
-                    <ColumnListItem type="Active" id="listItem">
+                    <ColumnListItem id="listItem">
                         <cells>
-                            <Text text="{ItemPosition}" id="text6"/>
-                            <Text text="{ProductID}" id="text7"/>
-                            <Text text="{ToProduct/Description}" id="text8"/></cells>
+                            <Text text="{ItemPosition}"/>
+                            <Text text="{ProductID}"/> 
+                            <Text text="{ToProduct/Description}"/>
+                            <Text text="{Note}"/>
+                            <ObjectNumber
+                                number="{NetAmount}"
+                                unit="{CurrencyCode}"/>
+                            <ObjectNumber
+                                number="{TaxAmount}"
+                                unit="{CurrencyCode}"/>
+                            <ObjectNumber
+                                number="{GrossAmount}"
+                                unit="{CurrencyCode}"/>
+                        </cells>
                     </ColumnListItem>
                 </items>
-                <columns>
-                    <Column id="column0">
-                        <header>
-                            <Label text="ItemPosition" id="label0"/>
-                        </header>
-                    </Column>
-                    <Column id="column1">
-                        <header>
-                            <Label text="ProductID" id="label1"/>
-                        </header>
-                    </Column>
-                    <Column id="column2">
-                        <header>
-                            <Label text="Product Description" id="label2"/>
-                        </header>
-                    </Column></columns>
             </Table>
         </Panel>
 	</content>

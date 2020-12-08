@@ -1,44 +1,68 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc"
-        xmlns="sap.m"
-        controllerName="sap.cp.webapp.controller.List" 
-        displayBlock="true">
-	<Page id="listPage" title="Sales Order List">
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    controllerName="sap.cp.webapp.controller.List" 
+    displayBlock="true">
+	<Page
+        id="listPage"
+        title="Sales Order List">
     <content>
-        <Table noDataText="Drop column list items here and columns in the area above" 
+        <Toolbar>
+            <Title width="100%" text="Filter"/>
+                <ComboBox 
+                    id="oComboBox"
+                    items="{path:'/BusinessPartnerSet'}">
+                    <core:Item text="{CompanyName}" />
+                </ComboBox>
+                <SearchField  search=".onCompanyName"/>                                        
+        </Toolbar>
+        <Table
+            noDataText="Drop column list items here and columns in the area above" 
             id="table0"
+    		growing="true"
+	    	growingThreshold="10"
+            growingScrollToLoad="false"
+    		alternateRowColors="true"
             items="{path:'/SalesOrderSet',sorter:[{path:'SalesOrderID',descending:false}]}"
             >
+            <columns>
+                <Column><header><Label text="Sales Oder ID"/></header></Column>
+                <Column><header><Label text="Customer"/></header></Column>
+                <Column><header><Label text="Note"/></header></Column>
+                <Column><header><Label text="DeliveryStatus"/></header></Column>
+                <Column><header><Label text="NetAmount"/></header></Column>
+                <Column><header><Label text="TaxAmount"/></header></Column>
+                <Column><header><Label text="GrossAmount"/></header></Column>
+            </columns>
             <items>
-                <ColumnListItem type="Active" id="item0" press="handleListItemPress">
+                <ColumnListItem
+                    type="Active"
+                    id="item0"
+                    press="handleListItemPress">
                     <cells>
-                        <Text text="{SalesOrderID}" id="text2"/>
-                        <Text text="{CustomerID}:{CustomerName}" id="text3"/>
-                        <Text text="{DeliveryStatus}" id="text4"/>
-                        <Text text="{GrossAmount}" id="text5"/></cells>
+                        <Text
+                            text="{SalesOrderID}"/>
+                        <ObjectIdentifier
+                            title="{CustomerName}"
+                            text="{CustomerID}"/>
+                        <Text
+                            text="{Note}" wrapping="true"/>
+                        <Text
+                            text="{DeliveryStatus}"/>
+                        <ObjectNumber
+                            number="{NetAmount}"
+                            unit="{CurrencyCode}"/>
+                        <ObjectNumber
+                            number="{TaxAmount}"
+                            unit="{CurrencyCode}"/>
+                        <ObjectNumber
+                            number="{GrossAmount}"
+                            unit="{CurrencyCode}"/>
+                    </cells>
                 </ColumnListItem>
             </items>
-            <columns>
-                <Column id="column0">
-                    <header>
-                        <Label text="Sales Oder ID" id="label0"/>
-                    </header>
-                </Column>
-                <Column id="column1">
-                    <header>
-                        <Label text="Customer" id="label1"/>
-                    </header>
-                </Column>
-                <Column id="column2">
-                    <header>
-                        <Label text="Delivery Status" id="label2"/>
-                    </header>
-                </Column>
-                <Column id="column3">
-                    <header>
-                        <Label text="Total Price" id="label3"/>
-                    </header>
-                </Column>
-            </columns></Table>
+            </Table>
     </content>
     </Page>
 </mvc:View>

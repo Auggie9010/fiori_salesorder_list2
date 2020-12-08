@@ -4,7 +4,6 @@ sap.ui.define([
 ],
     function (Controller, Filter) {
         "use strict";
-
         return Controller.extend("sap.cp.webapp.controller.Detail", {
             onInit: function () {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -25,7 +24,6 @@ sap.ui.define([
                         }
                     }
                 });
-
                 var list = this.byId("detailList");
                 var template = this.byId("listItem");
                 var filter = new Filter({
