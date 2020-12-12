@@ -10,11 +10,11 @@
     <content>
         <Toolbar>
             <Title width="100%" text="Filter"/>
-                <ComboBox 
+                <!-- <ComboBox 
                     id="oComboBox"
                     items="{path:'/BusinessPartnerSet'}">
                     <core:Item text="{CompanyName}" />
-                </ComboBox>
+                </ComboBox> -->
                 <SearchField  search=".onCompanyName"/>                                        
         </Toolbar>
         <Table
