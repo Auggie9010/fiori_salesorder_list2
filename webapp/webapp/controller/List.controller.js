@@ -6,17 +6,20 @@ sap.ui.define([
     function (Controller, Filter, FilterOperator) {
         "use strict";
         return Controller.extend("sap.cp.webapp.controller.List", {
-            onCompanyName : function (oEvent) {
-                var aFilter = [];
+            onInit : function () {
                 var oTable = this.byId("table0");
-                var oItem = this.byId("item0");
+                this._oTable = oTable;
+            },
+            onCompanyName : function (oEvent) {
+                var oTable = this.byId("table0");
                 var sQuery = oEvent.getParameter("query");
-// ptn3 start
                 var oBinding = this.getView().byId("table0");
-                var oFilter2;
-                oFilter2 = new sap.ui.model.Filter("CompanyName", "EQ", sQuery); 
-                oTable.getBinding("rows").filter([oFilter2]);
-// ptn3 end
+                this._oTable = oTable;
+                var oEventGetSource = oEvent.getSource();
+                var oFilter;
+                oFilter = new sap.ui.model.Filter("CompanyName", "EQ", sQuery); 
+                oTable.getBinding("items").filter([oFilter]);
+                alert("stop");
             },
             handleListItemPress: function (oEvent) {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
