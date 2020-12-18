@@ -21,8 +21,18 @@ https://developers.sap.com/tutorials/gateway-demo-signup.html
  * Join Entity sets
  * Table
 
-# To Fix
- * Filter on 1st screen
+# Memo
+```
+git config --global user.email "you@example.com"
+
+git config --global user.name "Your Name"
+
+git add .
+
+git commit -m "message"
+
+git push origin master
+```
 
 # Libraries
 
