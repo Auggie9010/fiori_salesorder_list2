@@ -10,11 +10,19 @@ Auggie9010
 # Last Updated Date
 2020/12/08
 
+# Data Source
+SAP Gateway Demo Server
+
+https://developers.sap.com/tutorials/gateway-demo-signup.html
+
 # Function
 
  * Filter
  * Join Entity sets
  * Table
+
+# To Fix
+ * Filter on 1st screen
 
 # Libraries
 

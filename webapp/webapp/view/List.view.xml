@@ -15,7 +15,7 @@
                     items="{path:'/BusinessPartnerSet'}">
                     <core:Item text="{CompanyName}" />
                 </ComboBox> -->
-                <SearchField  search=".onCompanyName"/>                                        
+                <SearchField  search=".onCustomerName"/>                                        
         </Toolbar>
         <Table
             noDataText="Drop column list items here and columns in the area above" 

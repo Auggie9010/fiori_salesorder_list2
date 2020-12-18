@@ -10,14 +10,14 @@ sap.ui.define([
                 var oTable = this.byId("table0");
                 this._oTable = oTable;
             },
-            onCompanyName : function (oEvent) {
+            onCustomerName : function (oEvent) {
                 var oTable = this.byId("table0");
                 var sQuery = oEvent.getParameter("query");
                 var oBinding = this.getView().byId("table0");
                 this._oTable = oTable;
                 var oEventGetSource = oEvent.getSource();
                 var oFilter;
-                oFilter = new sap.ui.model.Filter("CompanyName", "EQ", sQuery); 
+                oFilter = new sap.ui.model.Filter("CustomerName", "EQ", sQuery); 
                 oTable.getBinding("items").filter([oFilter]);
                 alert("stop");
             },
